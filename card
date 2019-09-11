@@ -5,10 +5,10 @@
 #include <string.h>
 
 
-
+long long card;
 long long askCard()
 {
-	long long card;
+	
 	printf("Enter your card number here: ");
 	scanf("%lld", &card);
 	
@@ -18,28 +18,51 @@ char * convertToArray()
 {
 	char cardArray[256];
 	sprintf(cardArray, "%lld", askCard());
-	printf("%", cardArray);
 	return cardArray;
 
 }
 
-int compareAmEx()
+int compareToCards()
 {
-	char amEx1[1] = { 34 };
-	char amEx2[1] = { 37 };
-	if (strlen(convertToArray()) == 15)
-	{	
-		printf("%d", strlen(convertToArray()));
-		printf("hi");
+	switch (strlen(convertToArray()))
+	{
+	case 15:printf("Amex");
+		char amEx1[1] = { 34 };
+		char amEx2[1] = { 37 };
+		printf("%lld", card % 100);
+
+
+
+		break;
+	case 16: printf("visa or master");
+		char visa[1] = { 4 };
+		char mc1[1] = { 51 };
+		char mc2[1] = { 52 };
+		char mc3[1] = { 53 };
+		char mc4[1] = { 54 };
+		char mc5[1] = { 55 };
+
+
+
+
+		break;
+	case 13: printf("visa");
+		char visa[1] = { 4 };
+
+
+
+
+		break;
 	}
 	return 0;
+	
+	
 }
 
 
 
 int main(void) {
-	convertToArray();
-	compareAmEx();
+	compareToCards();
 
 	
 
